@@ -14,8 +14,9 @@ public class Bank {
     }
 
     public boolean withdraw(Double value){
-        Double newBalance = balance - value;
+        logger.info("withdraw: value: {}, current balance: {}", value, balance);
 
+        Double newBalance = balance - value;
         if (value <= 0 || newBalance < 0){
             if(value <= 0){
                 logger.error("withdraw: The value to withdraw {} is negative", value);
@@ -26,21 +27,22 @@ public class Bank {
             return false;
         }
 
-        logger.info("withdraw: old balace: {}, withdraw ammount: {}, new balance: {}", balance, value, newBalance);
+        logger.info("withdraw: new balance: {}", newBalance);
 
         balance = newBalance;
         return true;
     }
 
     public boolean deposit(Double value){
+        logger.info("deposit: deposit amount: {}, current balance: {}", value, balance);
 
         if(value < 0){
-            logger.error("deposit: the deposit ammount {} is negative", value);
+            logger.error("deposit: the deposit amount {} is negative", value);
             return false;
         }
         Double newBalance = balance + value;
 
-        logger.info("deposit: old balace: {}, deposit ammount: {}, new balance: {}", balance, value, newBalance);
+        logger.info("deposit: new balance: {}", newBalance);
 
         balance = newBalance;
         return true;
