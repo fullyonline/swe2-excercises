@@ -145,6 +145,8 @@ public class CollectionsExercise {
 
     static void hashMap() {
         // TODO: Erstelle eine HashMap (Key: String; Value: List<Person>)
+
+
         // TODO: Füge folgende Einträge in die Map:
         //  ­ "family" : Liste von 3 Personen
         //  ­ "office" : null
@@ -159,16 +161,40 @@ public class CollectionsExercise {
 
     static void linkedHashMap() {
         // TODO: Erstelle eine LinkedHashMap (Key: Integer; Value: Person) mit Access-Order
+        Map<Integer, Person> map = new LinkedHashMap<>(5, .75f, true);
+
         // TODO: Fülle 5 Einträge ein (auch doppelte Keys, um zu überprüfen, dass der Value überschrieben wird)
+        map.put(0, new Person("Bernd", "das Brot", 33, true, new Address("was mach ich", 2, 2222, "Ach meno")));
+        map.put(1, new Person("Harald", "Schrader", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(1, new Person("Velo", "Weg", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(2, new Person("Hallo", "Velo", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(2, new Person("Irgendwas", "Velo", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(3, new Person("Hans", "Meier", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+
         // TODO: Gib die gesamte Map auf der Konsole aus
+        System.out.println(map);
+
         // TODO: Greife auf mehrere Elemente zu
+        System.out.println(map.get(0));
+
         // TODO: Gib die Map erneut aus und überprüfe die Sortierung
+        System.out.println(map);
     }
 
     static void treeMap() {
         // TODO: Erstelle eine TreeMap (Key: Integer; Value: Person)
+        Map<Integer, Person> map = new TreeMap<>();
+
         // TODO: Fülle 5 Einträge ein (auch doppelte Keys, um zu überprüfen, dass der Value überschrieben wird)
+        map.put(2, new Person("Irgendwas", "Velo", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(0, new Person("Bernd", "das Brot", 33, true, new Address("was mach ich", 2, 2222, "Ach meno")));
+        map.put(1, new Person("Velo", "Weg", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(3, new Person("Hans", "Meier", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(2, new Person("Hallo", "Velo", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.put(1, new Person("Harald", "Schrader", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+
         // TODO: Gib die gesamte Map auf der Konsole aus und überprüfe die Sortierung
+        System.out.println(map);
     }
 
 }
