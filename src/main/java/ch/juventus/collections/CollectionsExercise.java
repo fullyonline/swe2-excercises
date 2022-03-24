@@ -5,6 +5,14 @@ import ch.juventus.object.Person;
 
 import java.util.*;
 
+class PersonComparator implements Comparator<Person> {
+    @Override
+    public int compare(Person o1, Person o2) {
+        return o1.getLastname().compareTo(o2.getLastname());
+    }
+}
+
+
 public class CollectionsExercise {
 
     public static void main(String[] args) {
@@ -130,17 +138,38 @@ public class CollectionsExercise {
 
     static void linkedHashSet() {
         // TODO: Erstelle ein LinkedHashSet von Personen (object package)
+        Set<Person> map = new LinkedHashSet<>();
         // TODO: Füge mehrere Personen ein, auch doppelte (verschiedene Objekte mit gleichen Werten)
+        map.add(new Person("Harald", "Schrader", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(new Person("Velo", "Weg", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(new Person("Velo", "Weg", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(new Person("Irgendwas", "Velo", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(new Person("Hans", "Meier", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(new Person("Hans", "Meier", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
         // TODO: Prüfe, ob das Set nicht leer ist
+        System.out.println(map.isEmpty());
         // TODO: Gib die Länge des Sets aus (doppelte Personen?)
+        System.out.println(map.size());
         // TODO: Gib das gesamte Set mehrmals auf der Konsole aus. Wie ist die Reihenfolge der Elemente?
+        System.out.println(map);
+        System.out.println(map);
+        System.out.println(map);
+        System.out.println(map);
     }
 
     static void treeSet() {
+        Person petra = new Person("Petra", "Petra", 33, true, new Address("toast mich", 2, 2222, "Ach meno"));
         // TODO: Erstelle ein TreeSet von Personen (object package) und verwende den PersonComperator
+        Set<Person> map = new TreeSet<>(new PersonComparator());
         // TODO: Füge mehrere Personen ein, auch doppelte (verschiedene Objekte mit gleichen Werten)
+        map.add(new Person("Irgendwas", "Velo", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(new Person("Hans", "Meier", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(new Person("Hans", "Meier", 33, true, new Address("toast mich", 2, 2222, "Ach meno")));
+        map.add(petra);
         // TODO: Gib die Länge des Sets aus (doppelte Personen?)
+        System.out.println("size: " + map.size());
         // TODO: Gib das gesamte Set auf der Konsole aus. Wie ist die Reihenfolge der Elemente?
+        System.out.println(map);
     }
 
     static void hashMap() {
