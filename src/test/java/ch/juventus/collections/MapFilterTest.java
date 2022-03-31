@@ -1,5 +1,6 @@
 package ch.juventus.collections;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -8,6 +9,13 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MapFilterTest {
+
+    static MapFilter mapFilter;
+
+    @BeforeAll
+    static void initAll(){
+        mapFilter = new MapFilter();
+    }
 
     @Test
     void stringMapFilter(){
@@ -24,8 +32,7 @@ class MapFilterTest {
         expectedResult.put(4, "test");
         expectedResult.put(5, "test");
         // MapFilter auslösen
-        MapFilter<String> mapFilter = new MapFilter<>();
-        Map<Integer, String> newMap = mapFilter.cleanup(map, "test");
+        Map<Integer, String> newMap = mapFilter.cleanup(map, "Test");
         // Prüfen
         assertEquals(newMap, expectedResult);
     }
@@ -41,10 +48,10 @@ class MapFilterTest {
         map.put(5, 12);
         // Resultmap
         Map<Integer, Integer> expectedResult = new HashMap<>();
-        expectedResult.put(2, 11);
-        expectedResult.put(4, 11);
+        expectedResult.put(1, 10);
+        expectedResult.put(3, 10);
+        expectedResult.put(5, 12);
         // MapFilter auslösen
-        MapFilter<Integer> mapFilter = new MapFilter<>();
         Map<Integer, Integer> newMap = mapFilter.cleanup(map, 11);
         // Prüfen
         assertEquals(newMap, expectedResult);

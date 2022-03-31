@@ -42,7 +42,7 @@ public class CollectionsExercise {
         map.put(4, "test");
         map.put(5, "test");
         // MapFilter auslösen
-        MapFilter<String> mapFilter = new MapFilter<>();
+        MapFilter mapFilter = new MapFilter();
         Map<Integer, String> newMap = mapFilter.cleanup(map, "test");
         // Ausgabe
         System.out.println(newMap);
@@ -57,7 +57,7 @@ public class CollectionsExercise {
         map.put(4, 11);
         map.put(5, 12);
         // MapFilter auslösen
-        MapFilter<Integer> mapFilter = new MapFilter<>();
+        MapFilter mapFilter = new MapFilter();
         Map<Integer, Integer> newMap = mapFilter.cleanup(map, 11);
         // Ausgabe
         System.out.println(newMap);

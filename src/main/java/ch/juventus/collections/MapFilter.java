@@ -1,19 +1,17 @@
 package ch.juventus.collections;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
-public class MapFilter<T> {
+public class MapFilter {
 
-    public Map<Integer, T> cleanup(Map<Integer, T> map, T value){
-        Map<Integer, T> newMap = new HashMap<>();
+    public <K, V> Map<K, V> cleanup(Map<K, V> map, V value){
+        if(map == null || map.isEmpty()){
+            return Collections.emptyMap();
+        }
 
-        map.forEach((key, val) -> {
-            if(val == value){
-                newMap.put(key, val);
-            }
-        });
+        map.entrySet().removeIf(entry -> entry.getValue().equals(value));
 
-        return newMap;
+        return map;
     }
 }
