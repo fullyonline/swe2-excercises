@@ -24,6 +24,43 @@ public class CollectionsExercise {
         hashMap();
         linkedHashMap();
         treeMap();
+
+        mapFilter();
+    }
+
+    static void mapFilter(){
+        stringMapFilter();
+        intMapFilter();
+    }
+
+    static void stringMapFilter(){
+        // Map füllen
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "Test");
+        map.put(2, "test");
+        map.put(3, "Test");
+        map.put(4, "test");
+        map.put(5, "test");
+        // MapFilter auslösen
+        MapFilter<String> mapFilter = new MapFilter<>();
+        Map<Integer, String> newMap = mapFilter.cleanup(map, "test");
+        // Ausgabe
+        System.out.println(newMap);
+    }
+
+    static void intMapFilter(){
+        // Map füllen
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 10);
+        map.put(2, 11);
+        map.put(3, 10);
+        map.put(4, 11);
+        map.put(5, 12);
+        // MapFilter auslösen
+        MapFilter<Integer> mapFilter = new MapFilter<>();
+        Map<Integer, Integer> newMap = mapFilter.cleanup(map, 11);
+        // Ausgabe
+        System.out.println(newMap);
     }
 
     static void arrayList() {
